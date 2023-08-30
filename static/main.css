@@ -1,0 +1,115 @@
+body{
+  background-color: #807979;
+}
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: #333;
+    color: #e9dede;
+  }
+  
+  .logo h3 {
+    padding-left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .buttons button {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .buttons button:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Form styles */
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  form h2{
+    text-align: center;
+    color: #f2f2f2;
+    background-color: rgb(18, 113, 30);
+    border-radius: 5px;
+    padding: 10px;
+    width: 60%;
+  }
+  label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  input, textarea, select {
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border:1px solid black
+  }
+  
+  button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #555;
+  }
+  
+  /* Task list styles */
+  #taskList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  li span {
+    font-weight: bold;
+  }
+  
+  li button {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  li button:hover {
+    background-color: #333;
+    color: #fff;
+  }

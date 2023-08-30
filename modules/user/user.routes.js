@@ -1,8 +1,9 @@
 import express from "express"
 import controlSign from "./user.conroller.js"
-import validation from "../../db/middleware/validation.js"
-import validSchema  from "../../db/model/validatsignup.joi.js"
-validSchema
+import validation from "../../middleWare/validation.js";
+
+import validSchema  from "../../db/model/valideRegester.joi.js"
+
 const userRouter = new express.Router()
 
 userRouter.post("/signUp",validation(validSchema.validSchemaSignup),controlSign.signUp)

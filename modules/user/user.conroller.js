@@ -60,13 +60,13 @@ const controlSign = {
     try {
       const decoded = jwt.verify(token, jwt_secret);
       // console.log(decoded);
-      // const { email, password, userName, age, gender, phone_number, isAdmin } =decoded;
+       const { email, password, userName } =decoded;
 
       const deletedUser = await userModel.deleteOne({ userName: userName });
       // console.log(deletedUser)
 
       if (deletedUser.deletedCount === 1) {
-        res.status(204).end("deleted successfully");
+        res.end("deleted successfully");
       } else {
         res.status(404).json({ error: "User not found" });
       }
@@ -82,16 +82,17 @@ const controlSign = {
 
     try {
       const decoded = jwt.verify(token, jwt_secret);
-
-      let updatedData = {
-        userName: req.body.userName,
-        password: req.body.password,
-      }
-      const updatedUser = await userModel.updateOne({ userName: userName }, { $set: updatedData });
-      console.log(updatedUser);
-      if (updatedUser.n > 0) {
+      const { email, password, userName } =decoded;
+      // let updatedData = {
+      //   userName: req.body.userName,
+      //   password: req.body.password,
+      // }
+      const updatedUser = await userModel.updateOne({ userName: userName }, { $set: req.body });
+       console.log(updatedUser);
+      if (updatedUser.modifiedCount== 1) {
+        console.log("okkkkkkkkkk")
         // Check if at least one document is matched and modified
-        res.status(204).end("Updated successfully");
+        res.json({succeded:"Updated successfully"});
       } else {
         res.status(404).json({ error: "User not found" });
       }
@@ -99,7 +100,7 @@ const controlSign = {
       console.error(err);
       res.status(500).json({ error: "Internal Server Error" });
     }
-  },
+  }
 };
 
 export default controlSign;

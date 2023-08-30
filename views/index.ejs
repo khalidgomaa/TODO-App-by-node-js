@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+        <h3>todo list</h3>
+        </div>
+        <div><h1>welcome to our simple website</h1> </div>
+        <div class="buttons">
+          <button>Sign In</button>
+          <button>Sign Up</button>
+        </div>
+      </header>
+      
+    <!-- form html -->
+      <form action="/tasks " method="POST">
+    <h2>let's create your task </h2>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+      
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+          <option value="toDo">To Do</option>
+          <option value="doing">Doing</option>
+          <option value="done">Done</option>
+        </select>
+      
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" required>
+      
+        <label for="assignTo">Assign To:</label>
+        <input type="text" id="assignTo" name="assignTo">
+      
+        <label for="deadline">Deadline:</label>
+        <input type="date" id="deadline" name="deadline">
+      
+        <button type="submit">Create Task</button>
+      </form>
+      <ul id="taskList"></ul>
+  
+</body>
+</html>
