@@ -3,44 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tasks</title>
+    <title>register</title>
     <link rel="stylesheet" href="main.css" />
+    <style>
+        /* Style the form */
+form {
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 30px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  color: black;
+}
+
+/* Style form labels */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Style input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Change button color on hover */
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+      </style>
   </head>
   <body>
     <header>
       <div class="logo">
         <h3>todo list</h3>
       </div>
-      <div><h1>Tasks</h1></div>
+      <div><h1>register toDo list</h1></div>
       <div class="buttons">
         <button>Sign In</button>
         <button>Sign Up</button>
       </div>
     </header>
-    <form  method="POST">
-        <label for="userName">Username:</label>
-        <input type="text" id="userName" name="userName" required>
+
+      <form  method="POST" >
+          <label for="userName">Username:</label>
+          <input type="text" id="userName" name="userName" required>
+        
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" required>
+        
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        
+          <label for="phone_number">Phone Number:</label>
+          <input type="tel" id="phone_number" name="phone_number">
+        
+          <input type="submit" value="Submit">
+        </form>
       
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-      
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required>
-      
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      
-        <label for="phone_number">Phone Number:</label>
-        <input type="tel" id="phone_number" name="phone_number">
-      
-        <input type="submit" value="Submit">
-      </form>
     
   </body>
 </html>

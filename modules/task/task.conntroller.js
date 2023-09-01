@@ -32,15 +32,16 @@ const controlTask = {
     const { title, description, status } = req.body;
 
     const task = await taskModel.findById(id);
+    console.log(task)
     if (!task) {
-      return res.status(404).json({ message: 'Task not found' });
+      return res.json({ message: 'Task not found' });
     }
 
     task.title = title;
     task.description = description;
     task.status = status;
     await task.save();
-
+    res.redirect('/tasks');
     res.json({ message: 'Task updated successfully' });
   },
   deleteTask: async (req, res) => {
@@ -49,7 +50,8 @@ const controlTask = {
     if (result.deletedCount === 0) {
       return res.status(404).json({ message: 'Task not found' });
     }
-    res.json({ message: 'Task deleted successfully' });
+    res.redirect('/tasks');
+
   },
 };
 

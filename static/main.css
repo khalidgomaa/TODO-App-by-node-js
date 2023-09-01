@@ -1,47 +1,68 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Set default font family and size */
 body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   background-color: #10011f;
+ 
 }
 
-/* Style the header */
+/* Header Styles */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #5024b7;
-  color: #e9dede;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ccc;
 }
 
 .logo h3 {
-  color: #fff;
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
 }
 
 .buttons button {
-  background-color: #fff;
-  color: #333;
-  border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
   cursor: pointer;
 }
 
 .buttons button:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: #45a049;
 }
 
-/* Style the table */
+/* Table Styles */
 table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 20px;
 }
 
-th,
-td {
+th, td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -59,9 +80,7 @@ tr:hover {
   background-color: #08930a;
 }
 
-/* Style the form */
-/* Form styles */
-  
+/* Form Styles */
 form {
   display: flex;
   flex-direction: column;
@@ -105,4 +124,68 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #555;
+}
+/* Media Queries for responsiveness */
+
+@media screen and (max-width: 768px) {
+  /* Adjust styles for screens up to 768px wide */
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .buttons button {
+    font-size: 14px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  input[type="text"],
+  textarea,
+  select,
+  input[type="date"] {
+    font-size: 12px;
+  }
+
+  button[type="submit"] {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Adjust styles for screens up to 480px wide */
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo h3 {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttons button {
+    margin-top: 10px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  form {
+    max-width: 100%;
+  }
 }
