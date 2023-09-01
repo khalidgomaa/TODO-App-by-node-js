@@ -21,7 +21,6 @@ const controlTask = {
     });
     await task.save();
     res.redirect('/tasks');
-    res.json({ message: 'Task created successfully' });
   },
   updateTask: async (req, res) => {
     const { id } = req.params;
