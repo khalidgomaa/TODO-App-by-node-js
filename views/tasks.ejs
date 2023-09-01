@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h3>todo list</h3>
+      </div>
+      <div><h1>Tasks</h1></div>
+      <div class="buttons">
+        <button>Sign In</button>
+        <button>Sign Up</button>
+      </div>
+    </header>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>User ID</th>
+          <th>Assign To</th>
+          <th>Deadline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tasks.forEach(task => { %>
+          <tr>
+            <td><%= task.title %></td>
+            <td><%= task.description %></td>
+            <td><%= task.status %></td>
+            <td><%= task.userId %></td>
+            <td><%= task.assignTo %></td>
+            <td><%= task.deadline %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>

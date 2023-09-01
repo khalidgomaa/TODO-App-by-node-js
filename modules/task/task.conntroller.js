@@ -4,7 +4,7 @@ const controlTask = {
   showAllTasks: async (req, res) => {
     try {
       const tasks = await taskModel.find().exec();
-      res.json({ message: tasks });
+      res.render('tasks', { tasks: tasks.map(task => ({...task._doc, _id: task._id.toString() })) });
     } catch (err) {
       console.error(err);
     }
@@ -20,6 +20,7 @@ const controlTask = {
       deadline,
     });
     await task.save();
+    res.redirect('/tasks');
     res.json({ message: 'Task created successfully' });
   },
   updateTask: async (req, res) => {
