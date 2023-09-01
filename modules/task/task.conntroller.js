@@ -15,21 +15,21 @@ const controlTask = {
   },
   tasksWithOwner:async (req, res) => {
     try {
-   
       const tasks = await taskModel.find().exec();
       const users = await userModel.find().exec();
-
-      // Combine task and user data into a single object
+  
       const tasksWithUserData = tasks.map(task => {
         const user = users.find(u => u._id === task.userId);
         return {...task, user };
       });
+  
       res.json(tasksWithUserData);
     } catch (err) {
       console.error(err);
-      res.status(500).send('Error retrieving tasks with user data');
+      res.send('Error retrieving tasks with user data');
     }
-  },
+  }
+  ,
   addTask: async (req, res) => {
     const { title, description, status, userId, assignTo, deadline } = req.body;
     const task = new taskModel({

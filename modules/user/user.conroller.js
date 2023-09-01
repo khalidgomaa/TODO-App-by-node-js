@@ -1,23 +1,11 @@
 import userModel from "../../db/model/user.model.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-let jwt_secret = "this token";
+let secret_key = "this_is_the_secret_key_of_token ";
 const controlSign = {
   //* sign up controller function
   signUp: async (req, res) => {
     let { userName, email, password, age, gender, phone_number } = req.body;
-    let token = jwt.sign(
-      {
-        email,
-        password,
-        userName
-        
-      },
-      jwt_secret,
-      { expiresIn: "24h" }
-    );
-    console.log(`this is : ${token}`);
-
     let foundeduser = await userModel.findOne({ email });
     if (foundeduser) {
       res.json({ message: "already exist" });
@@ -32,7 +20,17 @@ const controlSign = {
         gender,
         phone_number,
       });
-
+      //~generate token jwt authorization
+      let token = jwt.sign(
+        {
+          email,
+          password,
+          userName
+                },
+       secret_key,
+        { expiresIn: "24h" }
+      );
+      console.log(`this is : ${token}`);
       res.redirect('/')
     }
   },
@@ -47,6 +45,16 @@ const controlSign = {
       //compare passwords
       let isMatch = await bcrypt.compareSync(password, foundeduser.password);
       if (isMatch) {
+         //~generate token jwt authorization
+      let token = jwt.sign(
+        {
+          email,
+          password,
+          userName
+                },
+       secret_key,
+        { expiresIn: "24h" }
+      );
         res.json({ message: "login successful" });
       } else res.status(503).send("Invalid password");
     }
@@ -58,7 +66,7 @@ const controlSign = {
     const token = req.headers.authorization;
 
     try {
-      const decoded = jwt.verify(token, jwt_secret);
+      const decoded = jwt.verify(token,secret_key);
       // console.log(decoded);
        const { email, password, userName } =decoded;
 
@@ -81,7 +89,7 @@ const controlSign = {
     const token = req.headers.authorization;
 
     try {
-      const decoded = jwt.verify(token, jwt_secret);
+      const decoded = jwt.verify(token,secret_key);
       const { email, password, userName } =decoded;
       // let updatedData = {
       //   userName: req.body.userName,
