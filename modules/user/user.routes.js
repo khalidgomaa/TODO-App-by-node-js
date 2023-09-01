@@ -5,6 +5,9 @@ import validation from "../../middleWare/validation.js";
 import validSchema  from "../../db/model/valideRegester.joi.js"
 
 const userRouter = new express.Router()
+userRouter.get("/signUp",(req,res)=>{
+    res.render('signup')
+  })
 
 userRouter.post("/signUp",validation(validSchema.validSchemaSignup),controlSign.signUp)
 userRouter.post("/signIn",validation(validSchema.validSchemaSignIn),controlSign.signIn)

@@ -4,7 +4,12 @@ const controlTask = {
   showAllTasks: async (req, res) => {
     try {
       const tasks = await taskModel.find().exec();
-      res.render('tasks', { tasks: tasks.map(task => ({...task._doc, _id: task._id.toString() })) });
+    
+//       const dateString = tasks.;
+// const date = new Date(dateString);
+
+// const normalDate = date.toLocaleDateString();
+      res.render('tasks', { tasks: tasks });
     } catch (err) {
       console.error(err);
     }

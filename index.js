@@ -8,7 +8,6 @@ app.use(express.json());
 const port = 3000;
 connectToDatabase();
 app.set('view engine', 'ejs');
-
 app.use(express.static('static'));
 app.use(express.urlencoded({ extended: true }));
 

@@ -28,7 +28,7 @@ const validSchema={
     'number.empty': 'Age is a required field'
   })
   ,
-  gender: Joi.string().valid('male', 'female', 'other').required()
+  gender: Joi.string().valid('male', 'female').required()
   .messages({
     'string.valid': 'Please provide a valid gender',
     'string.empty': 'Gender is a required field'

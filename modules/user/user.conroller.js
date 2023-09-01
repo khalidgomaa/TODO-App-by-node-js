@@ -33,7 +33,7 @@ const controlSign = {
         phone_number,
       });
 
-      res.header("auth-token", token).json({ message: savedData });
+      res.redirect('/')
     }
   },
   //* sign in controller function
