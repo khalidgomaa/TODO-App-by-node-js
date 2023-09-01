@@ -1,17 +1,33 @@
 import taskModel from '../../db/model/task.model.js';
+import userModel from '../../db/model/user.model.js';
 
 const controlTask = {
   showAllTasks: async (req, res) => {
     try {
       const tasks = await taskModel.find().exec();
-    
-//       const dateString = tasks.;
-// const date = new Date(dateString);
-
-// const normalDate = date.toLocaleDateString();
-      res.render('tasks', { tasks: tasks });
+      res.render('tasks', { 
+        tasks: tasks ,
+        page_title:"Tasks"
+      });
     } catch (err) {
       console.error(err);
+    }
+  },
+  tasksWithOwner:async (req, res) => {
+    try {
+   
+      const tasks = await taskModel.find().exec();
+      const users = await userModel.find().exec();
+
+      // Combine task and user data into a single object
+      const tasksWithUserData = tasks.map(task => {
+        const user = users.find(u => u._id === task.userId);
+        return {...task, user };
+      });
+      res.json(tasksWithUserData);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Error retrieving tasks with user data');
     }
   },
   addTask: async (req, res) => {

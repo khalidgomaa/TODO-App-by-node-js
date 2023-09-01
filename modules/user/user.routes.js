@@ -6,7 +6,9 @@ import validSchema  from "../../db/model/valideRegester.joi.js"
 
 const userRouter = new express.Router()
 userRouter.get("/signUp",(req,res)=>{
-    res.render('signup')
+    res.render('signup',{
+      page_title:"register"
+    })
   })
 
 userRouter.post("/signUp",validation(validSchema.validSchemaSignup),controlSign.signUp)

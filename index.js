@@ -12,7 +12,9 @@ app.use(express.static('static'));
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index',{
+    page_title:"Home"
+  });
 });
 
 app.use(userRouter);
